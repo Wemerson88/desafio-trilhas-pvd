@@ -1,0 +1,36 @@
+# PDV com Descontos: Nível 1
+
+
+Simula a lógica de um PDV (Ponto de Venda) que aplica descontos
+progressivos: um por idade do cliente e outro pelo valor da compra. Ele permite
+registrar várias compras seguidas e, ao encerrar, mostra um resumo do dia com a
+quantidade de compras, o total bruto, o total de descontos e o total final.
+
+## Como ele faz
+1. Pede o valor da compra. Se for negativo, avisa e pede de novo; se for `0`, encerra o loop.
+2. Pede a idade do cliente. Se for negativa, avisa e pede de novo.
+3. Se a idade for maior ou igual a 65, aplica 20% de desconto.
+4. Se o valor já descontado pela idade for maior que R$ 100, aplica mais 10% sobre esse valor.
+5. Mostra o valor final formatado em reais (ex.: `R$ 144.00`).
+6. Guarda cada compra (valor original e valor final) numa lista com `.append()`.
+7. Quando o usuário digita `0`, percorre a lista com um `for`, soma os valores e mostra o resumo do dia.
+
+## Como rodar
+```
+python pdv.py
+```
+
+## Tabela de exemplos
+
+| # | Valor (R$) | Idade | Desconto idade | Desconto valor | Valor final esperado |
+|---|-----------|-------|----------------|----------------|----------------------|
+| 1 | 50.00     | 30    | 0%             | 0%             | R$ 50.00             |
+| 2 | 100.00    | 30    | 0%             | 0%             | R$ 100.00            |
+| 3 | 80.00     | 65    | 20%            | 0%             | R$ 64.00             |
+| 4 | 100.00    | 70    | 20%            | 0%             | R$ 80.00             |
+| 5 | 125.00    | 70    | 20%            | 0%             | R$ 100.00            |
+| 6 | 200.00    | 30    | 0%             | 10%            | R$ 180.00            |
+| 7 | 101.00    | 30    | 0%             | 10%            | R$ 90.90             |
+| 8 | 200.00    | 65    | 20%            | 10%            | R$ 144.00            |
+| 9 | 1000.00   | 80    | 20%            | 10%            | R$ 720.00            |
+| 10| 200.00    | 64    | 0%             | 10%            | R$ 180.00            |
